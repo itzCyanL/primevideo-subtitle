@@ -16,7 +16,7 @@ export class PlaybackHandler implements HandlerInterface {
   handle(event: EventWithData): void {
     console.log("handle playback event", event);
     const subtitles = event.data;
-    const videoElement = this.document.getElementsByTagName("video")[0];
+    const videoElement = this.document.getElementsByTagName("video")[1];
     const subtitlesContetnElement = this.document.getElementsByClassName(
       View.SUBTITLES_CONTENT_ELEMENT_CLASS
     )[0];
