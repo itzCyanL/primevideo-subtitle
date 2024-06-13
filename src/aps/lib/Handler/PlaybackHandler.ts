@@ -14,6 +14,7 @@ export class PlaybackHandler implements HandlerInterface {
   }
 
   handle(event: EventWithData): void {
+    console.log("handle playback event", event);
     const subtitles = event.data;
     const videoElement = this.document.getElementsByTagName("video")[0];
     const subtitlesContetnElement = this.document.getElementsByClassName(
@@ -33,6 +34,7 @@ export class PlaybackHandler implements HandlerInterface {
         (subtitle) =>
           subtitle.startTime <= currentTime && subtitle.endTime >= currentTime
       );
+      console.log("LOOPING", { videoElement, currentTime, subtitleToShow });
       if (subtitleToShow) {
         subtitlesContetnElement.innerHTML = subtitleToShow.text;
       } else {

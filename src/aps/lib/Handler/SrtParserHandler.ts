@@ -28,6 +28,7 @@ export class SrtParserHandler implements HandlerInterface {
   }
 
   private dispatchPlayEvent(subtitles: OneSubtitle[]) {
+    console.log("dispatchPlayEvent", subtitles);
     const dropFileEvent = new EventWithData(PlaybackHandler.EVENT_NAME);
     dropFileEvent.data = subtitles;
     this.document.dispatchEvent(dropFileEvent);

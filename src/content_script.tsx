@@ -20,3 +20,12 @@ import { AmazonPrimeSubtitles } from "./aps/AmazonPrimeSubtitles";
 const amazonPrimeSubtitles = new AmazonPrimeSubtitles()
 const webPlayerQuery = '.'+View.WEB_PLAYER_ELEMENT_CLASS
 Utils.waitForElementExists(webPlayerQuery, amazonPrimeSubtitles.onLoad, [document])
+(function () {
+  const originalAddEventListener = EventTarget.prototype.addEventListener;
+
+  EventTarget.prototype.addEventListener = function (type, listener, options) {
+    console.log(`Event Listener added: ${type}`, this);
+    return originalAddEventListener.call(this, type, listener, options);
+  };
+})();
+
