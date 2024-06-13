@@ -17,9 +17,6 @@ import { Utils } from "./aps/lib/Utils";
 import { RegisterHandlers } from "./aps/lib/RegisterHandlers";
 import { AmazonPrimeSubtitles } from "./aps/AmazonPrimeSubtitles";
 
-const amazonPrimeSubtitles = new AmazonPrimeSubtitles()
-const webPlayerQuery = '.'+View.WEB_PLAYER_ELEMENT_CLASS
-Utils.waitForElementExists(webPlayerQuery, amazonPrimeSubtitles.onLoad, [document])
 (function () {
   const originalAddEventListener = EventTarget.prototype.addEventListener;
 
@@ -29,3 +26,8 @@ Utils.waitForElementExists(webPlayerQuery, amazonPrimeSubtitles.onLoad, [documen
   };
 })();
 
+const amazonPrimeSubtitles = new AmazonPrimeSubtitles();
+const webPlayerQuery = "." + View.WEB_PLAYER_ELEMENT_CLASS;
+Utils.waitForElementExists(webPlayerQuery, amazonPrimeSubtitles.onLoad, [
+  document,
+]);
